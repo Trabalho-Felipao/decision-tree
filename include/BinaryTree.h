@@ -16,6 +16,17 @@
 #include <string>
 
 class BinaryTree {
+    
+    private:
+        struct TreeNode {
+            std::string entry;
+            TreeNode* leftNode;
+            TreeNode* rightNode;
+
+            // TreeNode()
+        };
+        typedef TreeNode* TreePointer;
+        TreeNode root;
 
     public:
         

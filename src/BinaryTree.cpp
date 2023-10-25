@@ -20,3 +20,7 @@ BinaryTree&& BinaryTree::readTreeFromFile(std::string&& filepath) {
 void showTreeInformations() {
 
 }
+
+BinaryTree::TreeNode::TreeNode() {
+    
+}
