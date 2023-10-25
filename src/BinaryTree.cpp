@@ -13,7 +13,7 @@
 
 #include "../include/BinaryTree.h"
 
-BinaryTree&& BinaryTree::readTreeFromFile(std::string&& filepath) {
+BinaryTree& BinaryTree::readTreeFromFile(std::string&& filepath) {
 
 }
         
@@ -22,5 +22,5 @@ void showTreeInformations() {
 }
 
 BinaryTree::TreeNode::TreeNode() {
-    
+
 }

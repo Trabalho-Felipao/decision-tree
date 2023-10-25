@@ -31,7 +31,7 @@ class BinaryTree {
     public:
         
         [[deprecated("Not implemented")]]
-        static BinaryTree&& readTreeFromFile(std::string&& filepath);
+        static BinaryTree& readTreeFromFile(std::string&& filepath);
         
         [[deprecated("Not implemented")]]
         void showTreeInformations();
