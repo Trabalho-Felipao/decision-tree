@@ -12,3 +12,11 @@
  */
 
 #include "../include/BinaryTree.h"
+
+BinaryTree&& BinaryTree::readTreeFromFile(std::string&& filepath) {
+
+}
+        
+void showTreeInformations() {
+
+}

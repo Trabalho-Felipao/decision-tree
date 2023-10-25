@@ -13,7 +13,17 @@
 
 #ifndef BINARY_TREE_H
 #define BINARY_TREE_H
+#include <string>
 
-class BinaryTree {};
+class BinaryTree {
+
+    public:
+        
+        [[deprecated("Not implemented")]]
+        static BinaryTree&& readTreeFromFile(std::string&& filepath);
+        
+        [[deprecated("Not implemented")]]
+        void showTreeInformations();
+};
 
 #endif
