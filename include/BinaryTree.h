@@ -20,21 +20,36 @@ class BinaryTree {
     private:
         struct TreeNode {
             std::string entry;
-            TreeNode* leftNode;
-            TreeNode* rightNode;
+            TreeNode* leftSubTree;
+            TreeNode* rightSubTree;
 
-            // TreeNode()
+            TreeNode(std::string nodeValue): entry(nodeValue) {}
+            void setSubsequentSubTrees(std::string leftSubTree, std::string rightSubTree);
         };
         typedef TreeNode* TreePointer;
-        TreeNode root;
+        TreePointer root;
 
     public:
         
+        [[deprecated("Not implemented")]]
+        ~BinaryTree();
+
         [[deprecated("Not implemented")]]
         static BinaryTree& readTreeFromFile(std::string&& filepath);
         
         [[deprecated("Not implemented")]]
         void showTreeInformations();
+
+        [[deprecated("Debugging method")]]
+        void printTree();
+
+    private:
+
+        BinaryTree();
+
+        BinaryTree& withInitialNode(std::string initialNode, std::string leftSubTree, std::string rightSubTree);
+
+        void printTree(TreePointer &t, int s);
 };
 
 #endif

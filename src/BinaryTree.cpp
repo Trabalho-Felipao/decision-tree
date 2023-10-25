@@ -12,15 +12,57 @@
  */
 
 #include "../include/BinaryTree.h"
+#include <fstream>
+#include <iostream>
+#include <iomanip> // !!! Debugging only
+
+BinaryTree::BinaryTree():
+    root(nullptr)
+{}
+
+BinaryTree::~BinaryTree() {
+
+}
 
 BinaryTree& BinaryTree::readTreeFromFile(std::string&& filepath) {
+    std::ifstream treeFile(filepath, std::ios::in);
+    std::string node, leftSubTree, rightSubTree;
+    treeFile >> node >> leftSubTree >> rightSubTree;
+    return BinaryTree()
+        .withInitialNode(node, leftSubTree, rightSubTree);
+        // .followedBy();
+}
+
+BinaryTree& BinaryTree::withInitialNode(std::string initialNode,
+        std::string leftSubTree, std::string rightSubTree) {
+    this->root = new TreeNode(initialNode); // TODO: Verificar possibilidade de sobrescrever o operador para fazer a checagem de alocação correta da struct
+    this->root->setSubsequentSubTrees(leftSubTree, rightSubTree);
+    return *this;
+}
+
+void BinaryTree::TreeNode::setSubsequentSubTrees(std::string leftSubTree,
+        std::string rightSubTree) {
+    this->leftSubTree = new TreeNode(leftSubTree);
+    this->rightSubTree = new TreeNode(rightSubTree);
+}
+
+void BinaryTree::showTreeInformations() {
 
 }
-        
-void showTreeInformations() {
 
+// !!! Debugging only
+void BinaryTree::printTree(){
+    printTree(root, 0);
 }
 
-BinaryTree::TreeNode::TreeNode() {
-
+// !!! Debugging only
+void BinaryTree::printTree(TreePointer &t, int s){
+    int i;
+    if(t!=NULL){
+        printTree(t->rightSubTree, s+3);
+        for(i=1; i<=s; i++)
+            std::cout << " ";
+        std::cout << std::setw(6) <<t->entry <<std::endl;
+        printTree(t->leftSubTree, s+3);
+    }
 }
