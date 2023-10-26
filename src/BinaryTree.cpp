@@ -42,8 +42,8 @@ BinaryTree& BinaryTree::withInitialNode(std::string initialNode,
 
 void BinaryTree::TreeNode::setSubsequentSubTrees(std::string leftSubTree,
         std::string rightSubTree) {
-    this->leftSubTree = new TreeNode(leftSubTree);
-    this->rightSubTree = new TreeNode(rightSubTree);
+    this->leftSubTree = leftSubTree == "X" ? nullptr : new TreeNode(leftSubTree);
+    this->rightSubTree = rightSubTree == "X" ? nullptr : new TreeNode(rightSubTree);
 }
 
 void BinaryTree::showTreeInformations() {
