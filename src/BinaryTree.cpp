@@ -16,6 +16,12 @@
 #include <iostream>
 #include <iomanip> // !!! Debugging only
 
+BinaryTree::TreeNode::TreeNode(std::string nodeValue):
+    entry(nodeValue),
+    leftSubTree(nullptr),
+    rightSubTree(nullptr)
+{}
+
 BinaryTree::BinaryTree():
     root(nullptr)
 {}

@@ -23,7 +23,8 @@ class BinaryTree {
             TreeNode* leftSubTree;
             TreeNode* rightSubTree;
 
-            TreeNode(std::string nodeValue): entry(nodeValue) {}
+            TreeNode(std::string nodeValue);
+            // static TreeNode* createNode(std::string nodeValue);
             void setSubsequentSubTrees(std::string leftSubTree, std::string rightSubTree);
         };
         typedef TreeNode* TreePointer;
