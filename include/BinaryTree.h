@@ -50,6 +50,8 @@ class BinaryTree {
 
         BinaryTree& withInitialNode(std::string initialNode, std::string leftSubTree, std::string rightSubTree);
 
+        BinaryTree& followedBy(std::ifstream&& treeFile);
+
         void printTree(TreePointer &t, int s);
 };
 

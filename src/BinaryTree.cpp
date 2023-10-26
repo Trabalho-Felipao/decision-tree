@@ -35,8 +35,8 @@ BinaryTree& BinaryTree::readTreeFromFile(std::string&& filepath) {
     std::string node, leftSubTree, rightSubTree;
     treeFile >> node >> leftSubTree >> rightSubTree;
     return BinaryTree()
-        .withInitialNode(node, leftSubTree, rightSubTree);
-        // .followedBy();
+        .withInitialNode(node, leftSubTree, rightSubTree)
+        .followedBy(std::move(treeFile));
 }
 
 BinaryTree& BinaryTree::withInitialNode(std::string initialNode,
@@ -50,6 +50,15 @@ void BinaryTree::TreeNode::setSubsequentSubTrees(std::string leftSubTree,
         std::string rightSubTree) {
     this->leftSubTree = leftSubTree == "X" ? nullptr : new TreeNode(leftSubTree);
     this->rightSubTree = rightSubTree == "X" ? nullptr : new TreeNode(rightSubTree);
+}
+
+BinaryTree& BinaryTree::followedBy(std::ifstream&& treeFile) {
+    std::string nodeValue, leftSubTreeValue, rightSubTreeValue;
+    while (treeFile >> nodeValue >> leftSubTreeValue >>rightSubTreeValue
+            && nodeValue != "X") {
+        // this->findValueThenSetSubtrees(nodeValue, leftSubTreeValue, rightSubTreeValue);
+    }
+    return *this;
 }
 
 void BinaryTree::showTreeInformations() {
