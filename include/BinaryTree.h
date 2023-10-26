@@ -36,7 +36,6 @@ class BinaryTree {
         [[deprecated("Not implemented")]]
         ~BinaryTree();
 
-        [[deprecated("Not implemented")]]
         static BinaryTree& readTreeFromFile(std::string&& filepath);
         
         [[deprecated("Not implemented")]]
