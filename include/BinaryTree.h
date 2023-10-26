@@ -14,6 +14,7 @@
 #ifndef BINARY_TREE_H
 #define BINARY_TREE_H
 #include <string>
+#include <functional>
 
 class BinaryTree {
     
@@ -51,6 +52,8 @@ class BinaryTree {
         BinaryTree& withInitialNode(std::string initialNode, std::string leftSubTree, std::string rightSubTree);
 
         BinaryTree& followedBy(std::ifstream&& treeFile);
+
+        void findPositionThenSetSubtrees(TreePointer currentNode, std::string nodeValue, std::string leftSubTreeValue, std::string rightSubTreeValue);
 
         void printTree(TreePointer &t, int s);
 };
