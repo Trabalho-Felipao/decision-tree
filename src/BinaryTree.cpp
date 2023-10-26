@@ -41,7 +41,7 @@ BinaryTree& BinaryTree::readTreeFromFile(std::string&& filepath) {
 
 BinaryTree& BinaryTree::withInitialNode(std::string initialNode,
         std::string leftSubTree, std::string rightSubTree) {
-    this->root = new TreeNode(initialNode); // TODO: Verificar possibilidade de sobrescrever o operador para fazer a checagem de alocação correta da struct
+    this->root = new TreeNode(initialNode);
     this->root->setSubsequentSubTrees(leftSubTree, rightSubTree);
     return *this;
 }
@@ -57,6 +57,7 @@ BinaryTree& BinaryTree::followedBy(std::ifstream&& treeFile) {
     while (treeFile >> nodeValue >> leftSubTreeValue >>rightSubTreeValue
             && nodeValue != "X")
         this->findPositionThenSetSubtrees(root, nodeValue, leftSubTreeValue, rightSubTreeValue);
+    treeFile.close();
     return *this;
 }
 
