@@ -22,6 +22,17 @@ BinaryTree::TreeNode::TreeNode(std::string nodeValue):
     rightSubTree(nullptr)
 {}
 
+BinaryTree::TreeNode* BinaryTree::TreeNode::createNode(std::string nodeValue){
+    TreePointer pointer = new TreeNode(nodeValue);
+
+    if(pointer == nullptr){
+        std::cerr << "Falha na alocação de recursos!" << std::endl;
+        abort();
+    }
+
+    return pointer;
+}
+
 BinaryTree::BinaryTree():
     root(nullptr)
 {}
@@ -41,15 +52,15 @@ BinaryTree& BinaryTree::readTreeFromFile(std::string&& filepath) {
 
 BinaryTree& BinaryTree::withInitialNode(std::string initialNode,
         std::string leftSubTree, std::string rightSubTree) {
-    this->root = new TreeNode(initialNode);
+    this->root = TreeNode::createNode(initialNode);
     this->root->setSubsequentSubTrees(leftSubTree, rightSubTree);
     return *this;
 }
 
 void BinaryTree::TreeNode::setSubsequentSubTrees(std::string leftSubTree,
         std::string rightSubTree) {
-    this->leftSubTree = leftSubTree == "X" ? nullptr : new TreeNode(leftSubTree);
-    this->rightSubTree = rightSubTree == "X" ? nullptr : new TreeNode(rightSubTree);
+    this->leftSubTree = leftSubTree == "X" ? nullptr : TreeNode::createNode(leftSubTree);
+    this->rightSubTree = rightSubTree == "X" ? nullptr : TreeNode::createNode(rightSubTree);
 }
 
 BinaryTree& BinaryTree::followedBy(std::ifstream&& treeFile) {
