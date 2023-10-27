@@ -47,7 +47,8 @@ class BinaryTree {
     private:
 
         BinaryTree();
-        
+
+        void destroyTree(TreePointer node);
 
         BinaryTree& withInitialNode(std::string initialNode, std::string leftSubTree, std::string rightSubTree);
 
