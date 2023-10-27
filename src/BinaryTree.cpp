@@ -35,8 +35,6 @@ void BinaryTree::destroyTree(TreePointer node){
 BinaryTree::~BinaryTree(){
     
     destroyTree(root);
-
-    
 }
 
 BinaryTree::TreeNode* BinaryTree::TreeNode::createNode(std::string nodeValue){
@@ -54,20 +52,20 @@ BinaryTree::BinaryTree():
     root(nullptr)
 {}
 
-BinaryTree& BinaryTree::readTreeFromFile(std::string&& filepath) {
+BinaryTree* BinaryTree::readTreeFromFile(std::string&& filepath) {
     std::ifstream treeFile(filepath, std::ios::in);
     std::string node, leftSubTree, rightSubTree;
     treeFile >> node >> leftSubTree >> rightSubTree;
-    return BinaryTree()
-        .withInitialNode(node, leftSubTree, rightSubTree)
-        .followedBy(std::move(treeFile));
+    return (new BinaryTree())
+        ->withInitialNode(node, leftSubTree, rightSubTree)
+        ->followedBy(std::move(treeFile));
 }
 
-BinaryTree& BinaryTree::withInitialNode(std::string initialNode,
+BinaryTree* BinaryTree::withInitialNode(std::string initialNode,
         std::string leftSubTree, std::string rightSubTree) {
     this->root = TreeNode::createNode(initialNode);
     this->root->setSubsequentSubTrees(leftSubTree, rightSubTree);
-    return *this;
+    return this;
 }
 
 void BinaryTree::TreeNode::setSubsequentSubTrees(std::string leftSubTree,
@@ -76,13 +74,13 @@ void BinaryTree::TreeNode::setSubsequentSubTrees(std::string leftSubTree,
     this->rightSubTree = rightSubTree == "X" ? nullptr : TreeNode::createNode(rightSubTree);
 }
 
-BinaryTree& BinaryTree::followedBy(std::ifstream&& treeFile) {
+BinaryTree* BinaryTree::followedBy(std::ifstream&& treeFile) {
     std::string nodeValue, leftSubTreeValue, rightSubTreeValue;
     while (treeFile >> nodeValue >> leftSubTreeValue >>rightSubTreeValue
             && nodeValue != "X")
         this->findPositionThenSetSubtrees(root, nodeValue, leftSubTreeValue, rightSubTreeValue);
     treeFile.close();
-    return *this;
+    return this;
 }
 
 void BinaryTree::findPositionThenSetSubtrees(TreePointer currentNode,

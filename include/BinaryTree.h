@@ -33,10 +33,9 @@ class BinaryTree {
         
     public:
         
-        [[deprecated("Not implemented")]]
         ~BinaryTree();
 
-        static BinaryTree& readTreeFromFile(std::string&& filepath);
+        static BinaryTree* readTreeFromFile(std::string&& filepath);
         
         [[deprecated("Not implemented")]]
         void showTreeInformations();
@@ -50,9 +49,9 @@ class BinaryTree {
 
         void destroyTree(TreePointer node);
 
-        BinaryTree& withInitialNode(std::string initialNode, std::string leftSubTree, std::string rightSubTree);
+        BinaryTree* withInitialNode(std::string initialNode, std::string leftSubTree, std::string rightSubTree);
 
-        BinaryTree& followedBy(std::ifstream&& treeFile);
+        BinaryTree* followedBy(std::ifstream&& treeFile);
 
         void findPositionThenSetSubtrees(TreePointer currentNode, std::string nodeValue, std::string leftSubTreeValue, std::string rightSubTreeValue);
 
