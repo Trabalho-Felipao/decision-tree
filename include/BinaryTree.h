@@ -30,7 +30,7 @@ class BinaryTree {
         };
         typedef TreeNode* TreePointer;
         TreePointer root;
-
+        
     public:
         
         [[deprecated("Not implemented")]]
@@ -47,6 +47,7 @@ class BinaryTree {
     private:
 
         BinaryTree();
+        
 
         BinaryTree& withInitialNode(std::string initialNode, std::string leftSubTree, std::string rightSubTree);
 

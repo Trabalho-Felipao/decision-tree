@@ -22,6 +22,13 @@ BinaryTree::TreeNode::TreeNode(std::string nodeValue):
     rightSubTree(nullptr)
 {}
 
+BinaryTree::~BinaryTree(){
+    
+    delete(root->leftSubTree);
+    delete(root->rightSubTree);
+    delete(root);
+}
+
 BinaryTree::TreeNode* BinaryTree::TreeNode::createNode(std::string nodeValue){
     TreePointer pointer = new TreeNode(nodeValue);
 
