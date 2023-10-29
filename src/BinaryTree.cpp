@@ -22,21 +22,6 @@ BinaryTree::TreeNode::TreeNode(std::string nodeValue):
     rightSubTree(nullptr)
 {}
 
-void BinaryTree::destroyTree(TreePointer node){
-    if(node == nullptr)
-        return;
-    
-    destroyTree(node->leftSubTree);
-    destroyTree(node->rightSubTree);
-
-    delete node;
-}
-
-BinaryTree::~BinaryTree(){
-    
-    destroyTree(root);
-}
-
 BinaryTree::TreeNode* BinaryTree::TreeNode::createNode(std::string nodeValue){
     TreePointer pointer = new TreeNode(nodeValue);
 
@@ -51,6 +36,21 @@ BinaryTree::TreeNode* BinaryTree::TreeNode::createNode(std::string nodeValue){
 BinaryTree::BinaryTree():
     root(nullptr)
 {}
+
+BinaryTree::~BinaryTree(){
+    
+    destroyTree(root);
+}
+
+void BinaryTree::destroyTree(TreePointer node){
+    if(node == nullptr)
+        return;
+    
+    destroyTree(node->leftSubTree);
+    destroyTree(node->rightSubTree);
+
+    delete node;
+}
 
 BinaryTree* BinaryTree::readTreeFromFile(std::string&& filepath) {
     std::ifstream treeFile(filepath, std::ios::in);
