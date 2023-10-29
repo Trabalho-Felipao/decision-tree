@@ -18,5 +18,5 @@
 #include <memory>
 
 int main(int argc __attribute__((unused)), char *argv[]) {
-    BinaryTree::readTreeFromFile(std::move(argv[1])).showTreeInformations();
+    BinaryTree::readTreeFromFile(std::move(argv[1]))->showTreeInformations();
 }
