@@ -96,7 +96,27 @@ void BinaryTree::findPositionThenSetSubtrees(TreePointer currentNode,
 }
 
 void BinaryTree::showTreeInformations() {
+    showTreeInformations(root);
+}
 
+void BinaryTree::showTreeInformations(TreePointer &r){
+    if(r == NULL) return;
+    printNode(r);
+    showTreeInformations(r->leftSubTree);
+    showTreeInformations(r->rightSubTree);
+}
+
+void BinaryTree::printNode(TreePointer &node){
+    int numeroDeFilhos;
+    if(node->leftSubTree != NULL && node->rightSubTree != NULL) numeroDeFilhos = 2;
+    else if(node->leftSubTree != NULL || node->rightSubTree != NULL) numeroDeFilhos = 1;
+    else numeroDeFilhos = 0;
+    std::string tipoDeNo;
+    if(node->leftSubTree != NULL && node->rightSubTree != NULL) tipoDeNo = "ED";
+    else if(node->leftSubTree != NULL) tipoDeNo = 'E';
+    else if(node->rightSubTree != NULL) tipoDeNo = 'D';
+    else tipoDeNo = 'F';
+    std::cout << node->entry << " " << numeroDeFilhos << " " << tipoDeNo << std::endl;
 }
 
 // !!! Debugging only

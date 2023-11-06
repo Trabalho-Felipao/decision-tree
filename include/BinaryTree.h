@@ -56,6 +56,10 @@ class BinaryTree {
         void findPositionThenSetSubtrees(TreePointer currentNode, std::string nodeValue, std::string leftSubTreeValue, std::string rightSubTreeValue);
 
         void printTree(TreePointer &t, int s);
+
+        void printNode(TreePointer &node);
+        
+        void showTreeInformations(TreePointer &r);
 };
 
 #endif
