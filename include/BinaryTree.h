@@ -14,7 +14,6 @@
 #ifndef BINARY_TREE_H
 #define BINARY_TREE_H
 #include <string>
-#include <functional>
 
 class BinaryTree {
     
@@ -39,6 +38,7 @@ class BinaryTree {
         
         void showTreeInformations();
 
+        [[deprecated("Used only for testing")]]
         void printTree();
 
     private:
