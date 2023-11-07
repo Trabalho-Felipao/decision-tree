@@ -37,10 +37,8 @@ class BinaryTree {
 
         static BinaryTree* readTreeFromFile(std::string&& filepath);
         
-        [[deprecated("Not implemented")]]
         void showTreeInformations();
 
-        [[deprecated("Debugging method")]]
         void printTree();
 
     private:
@@ -57,9 +55,9 @@ class BinaryTree {
 
         void printTree(TreePointer &t, int s);
 
-        void printNode(TreePointer &node);
+        void printNode(TreePointer &node, int &totalDeFilhos);
         
-        void showTreeInformations(TreePointer &r);
+        void showTreeInformations(TreePointer &r, int &totalDeNos, int &totalDeFilhos);
 };
 
 #endif

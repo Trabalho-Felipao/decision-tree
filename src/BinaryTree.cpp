@@ -96,17 +96,20 @@ void BinaryTree::findPositionThenSetSubtrees(TreePointer currentNode,
 }
 
 void BinaryTree::showTreeInformations() {
-    showTreeInformations(root);
+    int totalDeNos = 0, totalDeFilhos = 0;
+    showTreeInformations(root, totalDeNos, totalDeFilhos);
+    std::cout << totalDeNos << " " << totalDeFilhos << std::endl;
 }
 
-void BinaryTree::showTreeInformations(TreePointer &r){
+void BinaryTree::showTreeInformations(TreePointer &r, int &totalDeNos, int &totalDeFilhos){
     if(r == NULL) return;
-    printNode(r);
-    showTreeInformations(r->leftSubTree);
-    showTreeInformations(r->rightSubTree);
+    totalDeNos++;
+    printNode(r, totalDeFilhos);
+    showTreeInformations(r->leftSubTree, totalDeNos, totalDeFilhos);
+    showTreeInformations(r->rightSubTree, totalDeNos, totalDeFilhos);
 }
 
-void BinaryTree::printNode(TreePointer &node){
+void BinaryTree::printNode(TreePointer &node, int &totalDeFilhos){
     int numeroDeFilhos;
     if(node->leftSubTree != NULL && node->rightSubTree != NULL) numeroDeFilhos = 2;
     else if(node->leftSubTree != NULL || node->rightSubTree != NULL) numeroDeFilhos = 1;
@@ -115,7 +118,7 @@ void BinaryTree::printNode(TreePointer &node){
     if(node->leftSubTree != NULL && node->rightSubTree != NULL) tipoDeNo = "ED";
     else if(node->leftSubTree != NULL) tipoDeNo = 'E';
     else if(node->rightSubTree != NULL) tipoDeNo = 'D';
-    else tipoDeNo = 'F';
+    else {tipoDeNo = 'F'; totalDeFilhos++;}
     std::cout << node->entry << " " << numeroDeFilhos << " " << tipoDeNo << std::endl;
 }
 
