@@ -76,7 +76,7 @@ void BinaryTree::TreeNode::setSubsequentSubTrees(std::string leftSubTree,
 
 BinaryTree* BinaryTree::followedBy(std::ifstream&& treeFile) {
     std::string nodeValue, leftSubTreeValue, rightSubTreeValue;
-    while (treeFile >> nodeValue >> leftSubTreeValue >>rightSubTreeValue
+    while (treeFile >> nodeValue >> leftSubTreeValue >> rightSubTreeValue
             && nodeValue != "X")
         this->findPositionThenSetSubtrees(root, nodeValue, leftSubTreeValue, rightSubTreeValue);
     treeFile.close();
@@ -95,10 +95,11 @@ void BinaryTree::findPositionThenSetSubtrees(TreePointer currentNode,
     findPositionThenSetSubtrees(currentNode->rightSubTree, nodeValue, leftSubTreeValue, rightSubTreeValue);
 }
 
-void BinaryTree::showTreeInformations() {
+BinaryTree* BinaryTree::showTreeInformations() {
     int totalDeNos = 0, totalDeFilhos = 0;
     showTreeInformations(root, totalDeNos, totalDeFilhos);
     std::cout << totalDeNos << " " << totalDeFilhos << std::endl;
+    return this;
 }
 
 void BinaryTree::showTreeInformations(TreePointer &r, int &totalDeNos, int &totalDeFilhos){

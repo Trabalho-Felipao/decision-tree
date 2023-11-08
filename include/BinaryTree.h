@@ -36,7 +36,7 @@ class BinaryTree {
 
         static BinaryTree* readTreeFromFile(std::string&& filepath);
         
-        void showTreeInformations();
+        BinaryTree* showTreeInformations();
 
         [[deprecated("Used only for testing")]]
         void printTree();
