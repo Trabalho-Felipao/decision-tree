@@ -46,6 +46,7 @@ class BinaryTree {
             // TODO: Documentar
             void setSubsequentSubTrees(std::string leftSubTree, std::string rightSubTree);
         };
+        
         typedef TreeNode* TreePointer;
         TreePointer root;
         
@@ -57,6 +58,13 @@ class BinaryTree {
          */
         ~BinaryTree();
 
+        /**
+         * @brief Cria uma estrutura de árvore binária à partir de um arquivo de
+         *  texto contendo seus dados.
+         * 
+         * @param filepath Caminho do arquivo que contém os dados.
+         * @return BinaryTree* Ponteiro para o objeto árvore instanciado e populado.
+         */
         static BinaryTree* readTreeFromFile(std::string&& filepath);
         
         BinaryTree* showTreeInformations();
@@ -67,10 +75,35 @@ class BinaryTree {
 
         void destroyTree(TreePointer node);
 
+        /**
+         * @brief Aloca o nó raiz e os nós de suas subárvores com seus valores já
+         *  inicializados. Esses valores são lidos da primeira linha do arquivo.
+         * 
+         * @param initialNode Valor do nó raiz.
+         * @param leftSubTree Valor do nó raiz da subárvore esquerda.
+         * @param rightSubTree Valor do nó raiz da subárvore direita.
+         * @return BinaryTree* Ponteiro para o próprio objeto.
+         */
         BinaryTree* withInitialNode(std::string initialNode, std::string leftSubTree, std::string rightSubTree);
 
+        /**
+         * @brief Aloca o restante dos nós das árvores a partir do arquivo. Lê todo
+         *  o arquivo até encontrar uma linha escrito "X X X".
+         * 
+         * @param treeFile Arquivo contendo os dados da árvore.
+         * @return BinaryTree* Ponteiro para o próprio objeto.
+         */
         BinaryTree* followedBy(std::ifstream&& treeFile);
 
+        /**
+         * @brief Procura recursivamente na árvore o nó já alocado e, assim que o
+         *  encontra, aloca os nós raízes de suas subárvores.
+         * 
+         * @param currentNode Nó atual em que o método está processando. 
+         * @param nodeValue Valor do nó a ser encontrado.
+         * @param leftSubTree Valor do nó raiz da subárvore esquerda.
+         * @param rightSubTree Valor do nó raiz da subárvore direita.
+         */
         void findPositionThenSetSubtrees(TreePointer currentNode, std::string nodeValue, std::string leftSubTreeValue, std::string rightSubTreeValue);
 
         void showTreeInformations(TreePointer &r, int &totalDeNos, int &totalDeFilhos);
