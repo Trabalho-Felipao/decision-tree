@@ -32,7 +32,7 @@ class BinaryTree {
              * 
              * @param nodeValue Valor de chave do nó.
              */
-            TreeNode(std::string nodeValue);
+            TreeNode(const std::string nodeValue);
             
             /**
              * @brief Aloca um TreeNode e verifica se a alocação ocorreu com sucesso.
@@ -41,10 +41,10 @@ class BinaryTree {
              * @param nodeValue Valor de chave do nó a ser alocado.
              * @return TreeNode* Ponteiro para o nó alocado.
              */
-            static TreeNode* createNode(std::string nodeValue);
+            static TreeNode* createNode(const std::string nodeValue);
             
             // TODO: Documentar
-            void setSubsequentSubTrees(std::string leftSubTree, std::string rightSubTree);
+            void setSubsequentSubTrees(const std::string leftSubTree, const std::string rightSubTree);
         };
         
         typedef TreeNode* TreePointer;
@@ -65,7 +65,7 @@ class BinaryTree {
          * @param filepath Caminho do arquivo que contém os dados.
          * @return BinaryTree* Ponteiro para o objeto árvore instanciado e populado.
          */
-        static BinaryTree* readTreeFromFile(std::string&& filepath);
+        static BinaryTree* readTreeFromFile(const std::string&& filepath);
         
         BinaryTree* showTreeInformations();
 
@@ -84,7 +84,7 @@ class BinaryTree {
          * @param rightSubTree Valor do nó raiz da subárvore direita.
          * @return BinaryTree* Ponteiro para o próprio objeto.
          */
-        BinaryTree* withInitialNode(std::string initialNode, std::string leftSubTree, std::string rightSubTree);
+        BinaryTree* withInitialNode(const std::string initialNode, const std::string leftSubTree, const std::string rightSubTree);
 
         /**
          * @brief Aloca o restante dos nós das árvores a partir do arquivo. Lê todo
@@ -104,11 +104,11 @@ class BinaryTree {
          * @param leftSubTree Valor do nó raiz da subárvore esquerda.
          * @param rightSubTree Valor do nó raiz da subárvore direita.
          */
-        void findPositionThenSetSubtrees(TreePointer currentNode, std::string nodeValue, std::string leftSubTreeValue, std::string rightSubTreeValue);
+        void findPositionThenSetSubtrees(TreePointer currentNode, const std::string nodeValue, const std::string leftSubTreeValue, const std::string rightSubTreeValue);
 
         void showTreeInformations(TreePointer &r, int &totalDeNos, int &totalDeFilhos);
         
-        void printNode(TreePointer &node, int &totalDeFilhos);
+        void printNode(TreePointer &node, int &totalDeFilhos) const;
 };
 
 #endif
