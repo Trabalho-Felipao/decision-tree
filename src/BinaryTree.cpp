@@ -14,7 +14,6 @@
 #include "../include/BinaryTree.h"
 #include <fstream>
 #include <iostream>
-#include <iomanip> // !!! Debugging only
 
 BinaryTree::TreeNode::TreeNode(std::string nodeValue):
     entry(nodeValue),
@@ -121,21 +120,4 @@ void BinaryTree::printNode(TreePointer &node, int &totalDeFilhos){
     else if(node->rightSubTree != NULL) tipoDeNo = 'D';
     else {tipoDeNo = 'F'; totalDeFilhos++;}
     std::cout << node->entry << " " << numeroDeFilhos << " " << tipoDeNo << std::endl;
-}
-
-// !!! Debugging only
-void BinaryTree::printTree(){
-    printTree(root, 0);
-}
-
-// !!! Debugging only
-void BinaryTree::printTree(TreePointer &t, int s){
-    int i;
-    if(t!=NULL){
-        printTree(t->rightSubTree, s+3);
-        for(i=1; i<=s; i++)
-            std::cout << " ";
-        std::cout << std::setw(6) <<t->entry <<std::endl;
-        printTree(t->leftSubTree, s+3);
-    }
 }

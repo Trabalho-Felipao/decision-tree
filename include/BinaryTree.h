@@ -61,9 +61,6 @@ class BinaryTree {
         
         BinaryTree* showTreeInformations();
 
-        [[deprecated("Used only for testing")]]
-        void printTree();
-
     private:
 
         BinaryTree();
@@ -76,11 +73,9 @@ class BinaryTree {
 
         void findPositionThenSetSubtrees(TreePointer currentNode, std::string nodeValue, std::string leftSubTreeValue, std::string rightSubTreeValue);
 
-        void printTree(TreePointer &t, int s);
-
-        void printNode(TreePointer &node, int &totalDeFilhos);
-        
         void showTreeInformations(TreePointer &r, int &totalDeNos, int &totalDeFilhos);
+        
+        void printNode(TreePointer &node, int &totalDeFilhos);
 };
 
 #endif
