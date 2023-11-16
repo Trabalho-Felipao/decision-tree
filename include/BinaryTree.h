@@ -15,12 +15,18 @@
 #define BINARY_TREE_H
 #include <string>
 
-// TODO: Documentar
+/**
+ * @brief Classe que representa uma arvore binaria
+ * 
+ * Implementa a arvore, seu construtor e destrutor e seus nós.
+*/
 class BinaryTree {
     
     private:
 
-        // TODO: Documentar
+        /**
+         * @brief Estrutura que implementa os nós da arvore.
+        */
         struct TreeNode {
 
             std::string entry;
