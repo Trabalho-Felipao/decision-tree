@@ -49,7 +49,12 @@ class BinaryTree {
              */
             static TreeNode* createNode(const std::string nodeValue);
             
-            // TODO: Documentar
+            /**
+             * @brief Define as subarvores esquerda e direita do nó.
+             * 
+             * @param leftSubTree Valor da subarvore esquerda.
+             * @param rightSubTree Valor da subarvore direita.
+            */
             void setSubsequentSubTrees(const std::string leftSubTree, const std::string rightSubTree);
         };
         
@@ -73,12 +78,25 @@ class BinaryTree {
          */
         static BinaryTree* readTreeFromFile(const std::string&& filepath);
         
+        /**
+         * @brief Exibe informações sobre a arvore
+         * 
+         * @return BinaryTree* Ponteiro para o proprio objeto.
+        */
         BinaryTree* showTreeInformations();
 
     private:
 
+        /**
+         * @brief Construtor padrão da classe 
+        */
         BinaryTree();
 
+        /**
+         * @brief Desaloca todos os nós da árvore.
+         * 
+         * @param node Nó a ser destruido.
+        */
         void destroyTree(TreePointer node);
 
         /**
@@ -112,8 +130,21 @@ class BinaryTree {
          */
         void findPositionThenSetSubtrees(TreePointer currentNode, const std::string nodeValue, const std::string leftSubTreeValue, const std::string rightSubTreeValue);
 
+        /**
+         * @brief Exibe recursivamente as informações contidas na arvore
+         * 
+         * @param r raiz da arvore
+         * @param totalDeNos Numero total de nós na arvore
+         * @param TotalDeFilhos Numero total de nós filhos na arvore
+        */
         void showTreeInformations(TreePointer &r, int &totalDeNos, int &totalDeFilhos);
         
+        /**
+         * @brief Imprime um nó especifico
+         * 
+         * @param node Nó a ser impresso
+         * @param totalDeFilhos Numero total de nós filhos.
+        */
         void printNode(TreePointer &node, int &totalDeFilhos) const;
 };
 
