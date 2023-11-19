@@ -134,18 +134,18 @@ class BinaryTree {
          * @brief Exibe recursivamente as informações contidas na arvore
          * 
          * @param r raiz da arvore
-         * @param totalDeNos Numero total de nós na arvore
-         * @param TotalDeFilhos Numero total de nós filhos na arvore
+         * @param totalOfNodes Numero total de nós na arvore
+         * @param totalOfLeaves Numero total de nós folhas na arvore
         */
-        void showTreeInformations(TreePointer &r, int &totalDeNos, int &totalDeFilhos);
+        void showTreeInformations(TreePointer &r, int &totalOfNodes, int &totalOfLeaves);
         
         /**
          * @brief Imprime um nó especifico
          * 
          * @param node Nó a ser impresso
-         * @param totalDeFilhos Numero total de nós filhos.
+         * @param totalOfLeaves Numero total de nós folhas.
         */
-        void printNode(TreePointer &node, int &totalDeFilhos) const;
+        void printNode(TreePointer &node, int &totalOfLeaves) const;
 };
 
 #endif

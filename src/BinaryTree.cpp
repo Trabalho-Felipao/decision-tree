@@ -96,29 +96,29 @@ void BinaryTree::findPositionThenSetSubtrees(TreePointer currentNode,
 }
 
 BinaryTree* BinaryTree::showTreeInformations() {
-    int totalDeNos = 0, totalDeFilhos = 0;
-    showTreeInformations(root, totalDeNos, totalDeFilhos);
-    std::cout << totalDeNos << " " << totalDeFilhos << std::endl;
+    int totalOfNodes = 0, totalOfLeaves = 0;
+    showTreeInformations(root, totalOfNodes, totalOfLeaves);
+    std::cout << totalOfNodes << " " << totalOfLeaves << std::endl;
     return this;
 }
 
-void BinaryTree::showTreeInformations(TreePointer &r, int &totalDeNos, int &totalDeFilhos){
+void BinaryTree::showTreeInformations(TreePointer &r, int &totalOfNodes, int &totalOfLeaves){
     if(r == NULL) return;
-    totalDeNos++;
-    printNode(r, totalDeFilhos);
-    showTreeInformations(r->leftSubTree, totalDeNos, totalDeFilhos);
-    showTreeInformations(r->rightSubTree, totalDeNos, totalDeFilhos);
+    totalOfNodes++;
+    printNode(r, totalOfLeaves);
+    showTreeInformations(r->leftSubTree, totalOfNodes, totalOfLeaves);
+    showTreeInformations(r->rightSubTree, totalOfNodes, totalOfLeaves);
 }
 
-void BinaryTree::printNode(TreePointer &node, int &totalDeFilhos) const {
-    int numeroDeFilhos;
-    if(node->leftSubTree != NULL && node->rightSubTree != NULL) numeroDeFilhos = 2;
-    else if(node->leftSubTree != NULL || node->rightSubTree != NULL) numeroDeFilhos = 1;
-    else numeroDeFilhos = 0;
-    std::string tipoDeNo;
-    if(node->leftSubTree != NULL && node->rightSubTree != NULL) tipoDeNo = "ED";
-    else if(node->leftSubTree != NULL) tipoDeNo = 'E';
-    else if(node->rightSubTree != NULL) tipoDeNo = 'D';
-    else {tipoDeNo = 'F'; totalDeFilhos++;}
-    std::cout << node->entry << " " << numeroDeFilhos << " " << tipoDeNo << std::endl;
+void BinaryTree::printNode(TreePointer &node, int &totalOfLeaves) const {
+    int numberOfChildren;
+    if(node->leftSubTree != NULL && node->rightSubTree != NULL) numberOfChildren = 2;
+    else if(node->leftSubTree != NULL || node->rightSubTree != NULL) numberOfChildren = 1;
+    else numberOfChildren = 0;
+    std::string nodeType;
+    if(node->leftSubTree != NULL && node->rightSubTree != NULL) nodeType = "ED";
+    else if(node->leftSubTree != NULL) nodeType = 'E';
+    else if(node->rightSubTree != NULL) nodeType = 'D';
+    else {nodeType = 'F'; totalOfLeaves++;}
+    std::cout << node->entry << " " << numberOfChildren << " " << nodeType << std::endl;
 }
