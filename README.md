@@ -1,7 +1,9 @@
 # Laboratório de Estrutura de Dados - Trabalho 2º Bimestre
 
 ## Árvore de Decisão
-        
+
+O objetivo deste trabalho é implementar uma árvore binária de decisão em C++ que lê dados de um arquivo com extensão .tree. Os dados do arquivo serão armazenados em uma estrutura de árvore, onde cada linha do arquivo traz o valor de um nó e o valor do nó de seus filhos. 
+
 ### Informações importantes para uso:
 - Compilação: Para realizar o build do projeto, execute o seguinte comando, seguindo a estrutura indicada:
     > Em ambientes baseado em Unix:
@@ -14,11 +16,11 @@
 - Execução: Para executar o programa corretamente, é necessário informar o caminho relativo ao arquivo de extensão .tree como primeiro argumento de execução, seguindo a estrutura indicada:
     > Em ambientes baseado em Unix:
     >
-    >```./DecisionTree "caminho/para/arquivo.tree"```
+    >```./DecisionTree caminho/para/arquivo.tree```
     > 
     > Em ambientes baseados no Windows:
     >
-    >```.\DecisionTree.exe "caminho\para\arquivo.tree"```
+    >```.\DecisionTree.exe caminho\para\arquivo.tree```
 
 &nbsp;
 ### Autores:
